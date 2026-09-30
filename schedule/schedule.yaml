@@ -37,19 +37,21 @@ project:
     - label: "Watch me build one, slowly"
       url: "https://youtu.be/f2w1WjsB1qc?t=4650"
       text: >-
-        In the Vibe Coding Studio, I built a spatial game theory simulator in Claude Code from a
-        published paper. Start with the end of Session 3 (from 1:17:30), where the project folder,
-        memory, and skills get set up, then watch all of
+        These two Vibe Coding Studio videos rebuild the spatial games model from our September 22
+        class, slowly and completely, starting from the Nowak and May paper. Watch the end of Session 3,
+        from 1:17:30 (47 minutes), which sets up the project folder in Claude Code and gives Claude a
+        memory, the paper, and skills, then writes and tests the first function. Then watch all of
       link2_label: "Session 4"
       link2_url: "https://youtu.be/Dl2vhxYcVT8"
       text2: >-
-        where the build happens. I went slowly and steadily on purpose so that you can see every
-        step. With Opus 5.5, Claude will build something much bigger than this with less prompting
-        and more accuracy.
+        (2 hours 16 minutes), which writes a spec, builds and tests the model, animates it, and deploys
+        it to the web as a finished app. That is the same path your project will follow. I went slowly
+        and steadily on purpose so that you can see every step; with Opus 5.5, Claude will build
+        something much bigger than this with less prompting and more accuracy.
     - label: "Claude accounts"
       text: >-
-        We are getting a Claude account for every student who does not already have one. I am
-        waiting on final approvals and will be in touch soon with details.
+        We are going to get a Claude account for every student who does not already have one. If you
+        do not have one yet, hold off on buying one and stand by for details.
     - label: "How I set up Claude"
       url: "claude-setup.html"
       text: >-
