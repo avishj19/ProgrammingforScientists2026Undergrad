@@ -54,22 +54,23 @@
   <h1>How I Set Up Claude</h1>
   <p class="sub">02-120 Programming for Scientists, Fall 2026 &middot; Phillip Compeau</p>
 
-  <p>Out of the box, Claude starts every conversation with amnesia. Almost everything in my setup exists to fix that. I give Claude a memory, standing rules, and skills it can reuse, and then I stay the manager. You do not need all of this for your project, and the box at the bottom says which parts you do need.</p>
+  <p>This page is about the Claude stack that I have built to help me with my work: teaching, research, running courses, and everything in between. It is also about how you can build one of your own to help you in college, in this class and far beyond it.</p>
+  <p>Out of the box, Claude starts every conversation with amnesia. Almost everything in my setup exists to fix that. I give Claude a memory, standing rules, and skills it can reuse, and then I stay the manager. Several of these pieces are ideas you have already met in this course. You do not need all of this for your project, and the boxes at the bottom say which parts you need now and which are worth growing into.</p>
 
   <h2>1. Everything happens in Claude Code, in a folder</h2>
   <p>I spend most of my working day in Claude Code, using the strongest model available (right now, Opus 5.5). Every project is one folder, and every folder is a GitHub repository. Claude works on the files in that folder directly, so nothing gets lost in a chat window, and everything it builds is mine to keep, change, and share.</p>
 
   <h2>2. Claude gets a memory that I can read</h2>
-  <p>A file called <code>CLAUDE.md</code> at the top of a folder is read at the start of every session. Mine says who I am, how I like to work, and where everything else lives. Behind it sits a folder of short notes, one topic per note, with an index that points to them. I keep the index short, and when something changes, I replace the old line rather than adding a new one next to it; otherwise the memory fills up with contradictions. Claude writes most of these notes, and I prune them.</p>
+  <p>A file called <code>CLAUDE.md</code> at the top of a folder is read at the start of every session. Mine says who I am, how I like to work, and where everything else lives. Behind it sits a folder of short notes, one topic per note, with an index that points to them. The index works like the dictionaries from Chapter 1: look up a topic, and get back the note about it. I keep the index short, and when something changes, I update the value for that key rather than adding a second entry next to it; otherwise the memory fills up with contradictions. Claude writes most of these notes, and I prune them.</p>
 
   <h2>3. I write my rules down once</h2>
   <p>Anything I got tired of repeating became a standing rule in memory: how I write, how I like my Python (type hints everywhere), and to commit and push when a job is done. If you correct Claude about the same thing twice, write it down.</p>
 
   <h2>4. Repeated work becomes a skill</h2>
-  <p>A skill is a short file of instructions that Claude loads when a task calls for it. I have skills for grading, building a syllabus, running course websites, and drafting emails. Two of them come from the Vibe Coding Studio and are made for you: <a href="https://www.philomathlearning.com/studio/skills/learn-with-ai-tutor.zip">learn-with-ai-tutor</a>, which turns Claude into a tutor that teaches one idea at a time and quizzes you, and <a href="https://www.philomathlearning.com/studio/skills/test-every-function.zip">test-every-function</a>, which makes Claude prove that each function works and explain the tests in plain English.</p>
+  <p>Since Chapter 0, whenever we have found ourselves writing the same code twice, we have pulled it out into a function and called that function instead. Skills are the same idea for Claude: a skill is a short file of instructions for a task that I do over and over, which Claude loads when the task calls for it. I have skills for grading, building a syllabus, running course websites, and drafting emails. Two of them come from the Vibe Coding Studio and are made for students: <a href="https://www.philomathlearning.com/studio/skills/learn-with-ai-tutor.zip">learn-with-ai-tutor</a>, which turns Claude into a tutor that teaches one idea at a time and quizzes you, and <a href="https://www.philomathlearning.com/studio/skills/test-every-function.zip">test-every-function</a>, which makes Claude prove that each function works and explain the tests in plain English.</p>
 
   <h2>5. One brain across machines</h2>
-  <p>My memory and skills live in a private GitHub repository that both of my computers point to, so Claude knows the same things wherever I sit down. Git also gives me a history of every change to Claude's memory.</p>
+  <p>My memory and skills live in a private GitHub repository that both of my computers point to, so Claude knows the same things wherever I sit down. It is the same clone, commit, and pull rhythm that you use with the course repository every week, and Git also gives me a history of every change to Claude's memory.</p>
 
   <h2>6. Claude is connected to the tools I use</h2>
   <p>Connectors let Claude read my email, calendar, and Google Drive, and draft replies. Claude drafts and I send. For your project, you need only GitHub and a place to deploy your app.</p>
@@ -81,7 +82,7 @@
   <p>I dictate most of my prompts with a speech-to-text app. Talking gets far more context out of my head than typing does, and context is what Claude needs most.</p>
 
   <h2>9. I stay the manager</h2>
-  <p>For anything bigger than a small fix, I start in plan mode and read the plan before any code gets written. I make Claude prove that the result works, with tests, an explanation in plain English, and a figure when one helps. I check behavior, and I ask Claude to explain any code that I do not understand. I own every commit, which means I own every mistake in it.</p>
+  <p>For anything bigger than a small fix, I start in plan mode and read the plan before any code gets written. This is the top-down programming of Chapter 3: agree on the highest-level function and the subroutines it needs before writing any of them. Then I make Claude prove that the result works, with the kind of tests you wrote in the Testing and Debugging recitation, an explanation in plain English, and a figure when one helps. I check behavior, and I ask Claude to explain any code that I do not understand. I own every commit, which means I own every mistake in it.</p>
 
   <section class="box">
     <h2>What you need for your project</h2>
@@ -91,6 +92,16 @@
       <li>The two skills above, added to your repository's <code>.claude/skills/</code> folder.</li>
       <li>Your paper, sources, and data in the repository, so that Claude can teach them to you.</li>
       <li>The manager habits in item 9, from your first session to your last.</li>
+    </ol>
+  </section>
+
+  <section class="box">
+    <h2>Growing it through college</h2>
+    <ol>
+      <li>Keep one folder per class, each with its own <code>CLAUDE.md</code> that says what the class is and how you want to learn it.</li>
+      <li>Use learn-with-ai-tutor when you study for any course, so that Claude quizzes you instead of handing you answers.</li>
+      <li>Each time you correct Claude about the same thing twice, add a line to memory; each time you do the same task three times, turn it into a skill.</li>
+      <li>Put your memory and skills in a private GitHub repository, so that your stack grows with you from year to year.</li>
     </ol>
   </section>
 
