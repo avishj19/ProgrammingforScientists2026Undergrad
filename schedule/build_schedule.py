@@ -212,7 +212,7 @@ def render_project(project: dict[str, Any]) -> str:
             body = body + " " + link2 + ", " + esc(resource.get("text2", ""))
         items.append(f"<li><b>{label}.</b> {body}</li>")
     return f"""
-  <section class="repo project">
+  <section class="repo project" id="project">
     <h3>Final project</h3>
     <p>{esc(project["intro"])} <a href="{pdf}" target="_blank" rel="noopener">Read the project description (PDF)</a>.</p>
     <ul>{"".join(items)}</ul>
@@ -520,6 +520,7 @@ PAGE = r"""<title>02-120 Semester Map</title>
       <a href="{{DAILY}}" target="_blank" rel="noopener">Daily challenges</a>
       <a href="https://programmingforlovers.com" target="_blank" rel="noopener">Code alongs</a>
       <a href="{{REPO}}" target="_blank" rel="noopener">Course code on GitHub</a>
+      <a href="#project">Final project</a>
     </nav>
   </header>
 
