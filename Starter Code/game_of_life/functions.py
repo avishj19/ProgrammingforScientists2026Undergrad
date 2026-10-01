@@ -55,7 +55,7 @@ def count_rows(board: GameBoard) -> int:
     """
     if not isinstance(board, list):
         raise ValueError("board must be a list.")
-    return 0  # TODO: implement
+    return len(board) # TODO: implement
 
 
 def count_cols(board: GameBoard) -> int:
@@ -70,7 +70,11 @@ def count_cols(board: GameBoard) -> int:
     """
     if not isinstance(board, list) or len(board) == 0:
         raise ValueError("board must be a non-empty 2D list.")
-    return 0  # TODO: implement
+    
+    #here is where we should make sure that board is rectangular
+    assert_rectangular(board)
+
+    return len(board[0])
 
 
 def assert_rectangular(board: GameBoard) -> None:
@@ -84,6 +88,14 @@ def assert_rectangular(board: GameBoard) -> None:
     if not isinstance(board, list) or len(board) == 0:
         raise ValueError("board must be a non-empty 2D list.")
     # TODO: implement
+
+    cols_0 = len(board[0])
+
+    for i in range(count_rows(board)):
+        if len(board[i]) != cols_0:
+            raise ValueError("Eroor")
+        
+    #I survived and nothing is going to be retuned
 
 
 def play_game_of_life(initial_board: GameBoard, num_gens: int) -> list[GameBoard]:
@@ -99,8 +111,22 @@ def play_game_of_life(initial_board: GameBoard, num_gens: int) -> list[GameBoard
         raise ValueError("initial_board must be a non-empty GameBoard.")
     if not isinstance(num_gens, int) or num_gens < 0:
         raise ValueError("num_gens must be a non-negative integer.")
-    return []  # TODO: implement
+    # TODO: implementboards = []
+    boards = []
 
+    #we know our first element of the list
+    boards.append(initial_board)
+    
+    #we play the game num_gens times, updatingthe previous board each time
+    for i in range(num_gens):
+        prev_board = boards[i]
+        new_board = update_board(prev_board)
+        boards.append(new_board)
+    
+
+
+
+    return boards
 
 def update_board(current_board: GameBoard) -> GameBoard:
     """
@@ -112,7 +138,23 @@ def update_board(current_board: GameBoard) -> GameBoard:
     """
     if not isinstance(current_board, list) or len(current_board) == 0:
         raise ValueError("current_board must be a non-empty GameBoard.")
-    return []  # TODO: implement
+    
+    #make a new board of False
+    num_rows = count_rows(current_board)
+    num_cols = count_cols(current_board[0])
+
+    newboard = initialize_board(num_rows, num_cols)
+
+
+    
+    #range over all the cells of the current board and
+    #update each cell acoording to the rules of gol
+    for i in range(num_rows):
+        for j in range(num_cols):
+            newboard[i][j] = update_cell(current_board,i,j)
+
+    
+    return newboard
 
 
 def initialize_board(num_rows: int, num_cols: int) -> GameBoard:
@@ -128,7 +170,15 @@ def initialize_board(num_rows: int, num_cols: int) -> GameBoard:
         raise ValueError("num_rows must be a positive integer.")
     if not isinstance(num_cols, int) or num_cols <= 0:
         raise ValueError("num_cols must be a positive integer.")
-    return []  # TODO: implement
+    
+    board: GameBoard = []
+
+    #create all rows
+    for i in range(num_rows):
+        current_row = [False] * num_cols
+        board.append(current_row)
+    
+    return board
 
 
 def update_cell(board: GameBoard, r: int, c: int) -> bool:
@@ -145,7 +195,18 @@ def update_cell(board: GameBoard, r: int, c: int) -> bool:
         raise ValueError("board must be a non-empty GameBoard.")
     if not isinstance(r, int) or not isinstance(c, int):
         raise ValueError("r and c must be integers.")
-    return False  # TODO: implement
+
+    if board[r][c]: 
+        if num_neigbhors == 2 or num_neighbhors ==3:
+            return True
+
+    
+    else: # Dead
+       if num_neighbors == 3:
+           return True
+       else:
+           return False
+    
 
 
 def count_live_neighbors(board: GameBoard, r: int, c: int) -> int:
@@ -160,7 +221,19 @@ def count_live_neighbors(board: GameBoard, r: int, c: int) -> int:
     """
     if not isinstance(board, list) or len(board) == 0:
         raise ValueError("board must be a non-empty GameBoard.")
-    return 0  # TODO: implement
+   
+    num_negigbhors = 0
+
+    for i in range(r-1, r+2):
+        for j in range(c-1, c+2):
+            #board[i][j] is cuurent neighbhor
+            if (((i !=r ) or (j !=c))) and in_field(board, i,j):
+                if board[i][j]:
+                    num_negigbhors+=1
+
+
+
+    return num_negigbhors
 
 
 def in_field(board: GameBoard, i: int, j: int) -> bool:
@@ -177,4 +250,9 @@ def in_field(board: GameBoard, i: int, j: int) -> bool:
         raise ValueError("board must be a non-empty GameBoard.")
     if not isinstance(i, int) or not isinstance(j, int):
         raise ValueError("i and j must be integers.")
-    return False  # TODO: implement
+    
+    #lets check if it's not 
+    if i < 0 or j < 0 or  i >= num_rows or j >= num_cols :
+        return False
+    
+    return True
