@@ -329,8 +329,8 @@ weeks:
     days:
       - date: 2026-10-06
         kind: lecture
-        title: "OOP I"
-        detail: "We plan the gravity simulator top-down and start the physics engine."
+        title: "Cellular automata discussion; OOP I"
+        detail: "We discuss cellular automata, then plan the gravity simulator top-down and start the physics engine."
         prepare:
           - kind: required
             text: "Read the Chapter 4 core text"
@@ -339,7 +339,7 @@ weeks:
             text: "Chapter 4 code along: An Introduction to Classes"
             url: ca_classes
             minutes: 102
-            note: "This is the longest preparation of the semester. Start early. Copy Starter Code/shapes into python/src/ and code along in the copy."
+            note: "This is the longest preparation of the semester. Start early. Copy Starter Code/shapes into python/src/ and code along in the copy. Then check your work with the six Introduction to Classes problems in the Chapter 4 Check Your Work, open Thu 10/1 and due Mon 10/5 at 11:59pm."
           - kind: required
             text: "Pull the course repository and copy Starter Code/gravity into python/src/; we build from it in class"
             url: "https://github.com/phcompeau/ProgrammingforScientists2026Undergrad"
