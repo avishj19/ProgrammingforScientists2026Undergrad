@@ -27,6 +27,36 @@ course:
   note: >-
     Code alongs listed under Complete before class are done on your own, ahead of that class meeting.
 
+project:
+  pdf: "project/Project_Description_F26.pdf"
+  intro: >-
+    You will spend the second half of the semester building a piece of scientific software of your
+    own with Claude Code. The proposal is due Wednesday, October 7, so that you get feedback before
+    Fall Break. Every project date is also on the calendar below.
+  resources:
+    - label: "Watch me build one, slowly"
+      url: "https://youtu.be/f2w1WjsB1qc?t=4650"
+      text: >-
+        These two Vibe Coding Studio videos rebuild the spatial games model from our September 22
+        class, slowly and completely, starting from the Nowak and May paper. Watch the end of Session 3,
+        from 1:17:30 (47 minutes), which sets up the project folder in Claude Code and gives Claude a
+        memory, the paper, and skills, then writes and tests the first function. Then watch all of
+      link2_label: "Session 4"
+      link2_url: "https://youtu.be/Dl2vhxYcVT8"
+      text2: >-
+        (2 hours 16 minutes), which writes a spec, builds and tests the model, animates it, and deploys
+        it to the web as a finished app. That is the same path your project will follow. I went slowly
+        and steadily on purpose so that you can see every step; with Opus 5.5, Claude will build
+        something much bigger than this with less prompting and more accuracy.
+    - label: "Claude accounts"
+      text: >-
+        We are going to get a Claude account for every student who does not already have one. If you
+        do not have one yet, hold off on buying one and stand by for details.
+    - label: "How I set up Claude"
+      url: "claude-setup.html"
+      text: >-
+        My high-level guide to the setup I use every day, and which parts of it matter for your project.
+
 links:
   ch0_text:   "https://programmingforlovers.com/chapter-0-ancient-greek-mathematics-foundations-of-computational-thinking/chapter-0-core-text/"
   ch0_along:  "https://programmingforlovers.com/chapter-0-ancient-greek-mathematics-foundations-of-computational-thinking/chapter-0-python-code-alongs/"
@@ -299,8 +329,8 @@ weeks:
     days:
       - date: 2026-10-06
         kind: lecture
-        title: "OOP I"
-        detail: "We plan the gravity simulator top-down and start the physics engine."
+        title: "Cellular automata discussion; OOP I"
+        detail: "We discuss cellular automata, then plan the gravity simulator top-down and start the physics engine."
         prepare:
           - kind: required
             text: "Read the Chapter 4 core text"
@@ -309,10 +339,15 @@ weeks:
             text: "Chapter 4 code along: An Introduction to Classes"
             url: ca_classes
             minutes: 102
-            note: "This is the longest preparation of the semester. Start early. Copy Starter Code/shapes into python/src/ and code along in the copy."
+            note: "This is the longest preparation of the semester. Start early. Copy Starter Code/shapes into python/src/ and code along in the copy. Then check your work with the six Introduction to Classes problems in the Chapter 4 Check Your Work, open Thu 10/1 and due Mon 10/5 at 11:59pm."
           - kind: required
             text: "Pull the course repository and copy Starter Code/gravity into python/src/; we build from it in class"
             url: "https://github.com/phcompeau/ProgrammingforScientists2026Undergrad"
+      - date: 2026-10-07
+        kind: deadline
+        due:
+          - text: "Project proposal due"
+            url: "project/Project_Description_F26.pdf"
       - date: 2026-10-08
         kind: lecture
         title: "OOP II"
@@ -363,6 +398,11 @@ weeks:
             text: "Data for Trees"
             url: ca_datatrees
             minutes: 7
+      - date: 2026-10-21
+        kind: deadline
+        due:
+          - text: "Revised project proposal due (only if we asked for one)"
+            url: "project/Project_Description_F26.pdf"
       - date: 2026-10-22
         kind: lecture
         title: "Trees II"
@@ -403,6 +443,7 @@ weeks:
     label: "Week 9"
     start: 2026-11-02
     end: 2026-11-06
+    note: "Project TA check-ins run from Wednesday, November 4 through Friday, November 13."
     days:
       - date: 2026-11-02
         kind: deadline
@@ -430,6 +471,7 @@ weeks:
     label: "Week 10"
     start: 2026-11-09
     end: 2026-11-13
+    note: "Project TA check-ins continue through Friday, November 13."
     days:
       - date: 2026-11-10
         kind: lecture
@@ -480,6 +522,9 @@ weeks:
         kind: recitation
         title: "Recitation 9: Depth-first search and hard problems"
         detail: "Backtracking for the knight's tour, and why some graph questions may never be easy."
+        due:
+          - text: "First version of your project app live on the web"
+            url: "project/Project_Description_F26.pdf"
 
   - title: "Theory 2 and Thanksgiving"
     label: "Week 12"
@@ -506,10 +551,15 @@ weeks:
           - text: "HW7 due (assembly)"
       - date: 2026-12-01
         kind: lecture
-        title: "Project presentations"
+        title: "Project demo day"
+        detail: "A science fair: half the class demos at tables while the other half walks around, then we swap. Practice for Thursday."
+        due:
+          - text: "Final project app, code, and video due"
+            url: "project/Project_Description_F26.pdf"
       - date: 2026-12-03
-        kind: lecture
-        title: "Project presentations"
+        kind: exam
+        title: "Project assessment, in class"
+        detail: "Closed and on paper, about your own project."
       - date: 2026-12-04
         kind: no-class
         title: "No recitation: optional Midterm 2 review"

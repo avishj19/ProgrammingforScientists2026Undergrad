@@ -93,6 +93,10 @@
     font-weight: 600; font-size: 19px; color: var(--ink);
   }
   .repo p { margin: 0 0 10px; }
+  .repo ul { margin: 0; padding-left: 20px; }
+  .repo li { margin: 0 0 8px; }
+  .repo li:last-child { margin-bottom: 0; }
+  .project { border-left-color: var(--red); }
   .repo a { overflow-wrap: anywhere; }
   .repo p:last-child { margin-bottom: 0; }
   .repo code {
@@ -271,6 +275,7 @@
       <a href="https://p4l-website.vercel.app/courses/02-120-daily-challenges/" target="_blank" rel="noopener">Daily challenges</a>
       <a href="https://programmingforlovers.com" target="_blank" rel="noopener">Code alongs</a>
       <a href="https://github.com/phcompeau/ProgrammingforScientists2026Undergrad" target="_blank" rel="noopener">Course code on GitHub</a>
+      <a href="#project">Final project</a>
     </nav>
   </header>
 
@@ -281,6 +286,12 @@
     <p>Everything we write together in class lives in <a href="https://github.com/phcompeau/ProgrammingforScientists2026Undergrad" target="_blank" rel="noopener">github.com/phcompeau/ProgrammingforScientists2026Undergrad</a>, together with the starter files for every assignment. Clone it in the first week and pull from it before each class, because we add to it every week.</p>
     <code class="clone">git clone https://github.com/phcompeau/ProgrammingforScientists2026Undergrad.git</code>
     <p>New to Git? <a href="https://desktop.github.com" target="_blank" rel="noopener">GitHub Desktop</a> does the same thing with buttons: <b>File &gt; Clone Repository &gt; URL</b>, then <b>Fetch origin</b> and <b>Pull</b> each week. The <a href="https://github.com/phcompeau/ProgrammingforScientists2026Undergrad#readme" target="_blank" rel="noopener">repository README</a> explains how <code>Starter Code</code> and <code>Finished Code</code> are organized, and how to keep your own edits out of Git's way.</p>
+  </section>
+
+  <section class="repo project" id="project">
+    <h3>Final project</h3>
+    <p>You will spend the second half of the semester building a piece of scientific software of your own with Claude Code. The proposal is due Wednesday, October 7, so that you get feedback before Fall Break. Every project date is also on the calendar below. <a href="project/Project_Description_F26.pdf" target="_blank" rel="noopener">Read the project description (PDF)</a>.</p>
+    <ul><li><b><a href="https://youtu.be/f2w1WjsB1qc?t=4650" target="_blank" rel="noopener">Watch me build one, slowly</a>.</b> These two Vibe Coding Studio videos rebuild the spatial games model from our September 22 class, slowly and completely, starting from the Nowak and May paper. Watch the end of Session 3, from 1:17:30 (47 minutes), which sets up the project folder in Claude Code and gives Claude a memory, the paper, and skills, then writes and tests the first function. Then watch all of <a href="https://youtu.be/Dl2vhxYcVT8" target="_blank" rel="noopener">Session 4</a>, (2 hours 16 minutes), which writes a spec, builds and tests the model, animates it, and deploys it to the web as a finished app. That is the same path your project will follow. I went slowly and steadily on purpose so that you can see every step; with Opus 5.5, Claude will build something much bigger than this with less prompting and more accuracy.</li><li><b>Claude accounts.</b> We are going to get a Claude account for every student who does not already have one. If you do not have one yet, hold off on buying one and stand by for details.</li><li><b><a href="claude-setup.html" target="_blank" rel="noopener">How I set up Claude</a>.</b> My high-level guide to the setup I use every day, and which parts of it matter for your project.</li></ul>
   </section>
 
   <div class="legend">
@@ -587,9 +598,18 @@
           <span class="date">Tue 10/6</span>
           <span class="kind">Lecture</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">OOP I</div><div class="detail">We plan the gravity simulator top-down and start the physics engine.</div></div>
-        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-4/chapter-4-core-text/" target="_blank" rel="noopener">Read the Chapter 4 core text</a></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-4/chapter-4-python-code-alongs/introduction-to-object-oriented-programming-in-python/" target="_blank" rel="noopener">Chapter 4 code along: An Introduction to Classes</a><span class="mins">1 hr 42 min</span><span class="prepnote">This is the longest preparation of the semester. Start early. Copy Starter Code/shapes into python/src/ and code along in the copy.</span></li><li class="prep prep-required"><a href="https://github.com/phcompeau/ProgrammingforScientists2026Undergrad" target="_blank" rel="noopener">Pull the course repository and copy Starter Code/gravity into python/src/; we build from it in class</a></li></ul></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Cellular automata discussion; OOP I</div><div class="detail">We discuss cellular automata, then plan the gravity simulator top-down and start the physics engine.</div></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-4/chapter-4-core-text/" target="_blank" rel="noopener">Read the Chapter 4 core text</a></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-4/chapter-4-python-code-alongs/introduction-to-object-oriented-programming-in-python/" target="_blank" rel="noopener">Chapter 4 code along: An Introduction to Classes</a><span class="mins">1 hr 42 min</span><span class="prepnote">This is the longest preparation of the semester. Start early. Copy Starter Code/shapes into python/src/ and code along in the copy. Then check your work with the six Introduction to Classes problems in the Chapter 4 Check Your Work, open Thu 10/1 and due Mon 10/5 at 11:59pm.</span></li><li class="prep prep-required"><a href="https://github.com/phcompeau/ProgrammingforScientists2026Undergrad" target="_blank" rel="noopener">Pull the course repository and copy Starter Code/gravity into python/src/; we build from it in class</a></li></ul></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
+      </div>
+      <div class="row row-deadline" data-date="2026-10-07">
+        <div class="cell cell-date">
+          <span class="date">Wed 10/7</span>
+          <span class="kind">Deadline</span>
+        </div>
+        <div class="cell cell-class"><span class="colhead">In class</span><span class="none">&middot;</span></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
+        <div class="cell cell-due"><span class="colhead">Due</span><ul class="duelist"><li class="due"><a href="project/Project_Description_F26.pdf" target="_blank" rel="noopener">Project proposal due</a></li></ul></div>
       </div>
       <div class="row row-lecture" data-date="2026-10-08">
         <div class="cell cell-date">
@@ -668,6 +688,15 @@
         <div class="cell cell-prep"><span class="colhead">Before class</span><ul class="preplist"><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-5/chapter-5-core-text/" target="_blank" rel="noopener">Read the Chapter 5 core text</a></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/first-evolutionary-tree-code-along-in-python/" target="_blank" rel="noopener">Chapter 5 code along: Returning to Shapes, An Introduction to Methods</a><span class="mins">1 hr 47 min</span></li><li class="prep prep-required"><a href="https://programmingforlovers.com/chapter-5/chapter-5-python-code-alongs/data-for-trees/" target="_blank" rel="noopener">Data for Trees</a><span class="mins">7 min</span></li></ul></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
+      <div class="row row-deadline" data-date="2026-10-21">
+        <div class="cell cell-date">
+          <span class="date">Wed 10/21</span>
+          <span class="kind">Deadline</span>
+        </div>
+        <div class="cell cell-class"><span class="colhead">In class</span><span class="none">&middot;</span></div>
+        <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
+        <div class="cell cell-due"><span class="colhead">Due</span><ul class="duelist"><li class="due"><a href="project/Project_Description_F26.pdf" target="_blank" rel="noopener">Revised project proposal due (only if we asked for one)</a></li></ul></div>
+      </div>
       <div class="row row-lecture" data-date="2026-10-22">
         <div class="cell cell-date">
           <span class="date">Thu 10/22</span>
@@ -737,7 +766,7 @@
           <h2 class="wtitle">Parallel programming 1</h2>
         </div>
       </header>
-      
+      <p class="wnote">Project TA check-ins run from Wednesday, November 4 through Friday, November 13.</p>
       <div class="rows">
         <div class="row rowhead">
           <div class="cell">Date</div>
@@ -789,7 +818,7 @@
           <h2 class="wtitle">Parallel programming 2 and assembly 1</h2>
         </div>
       </header>
-      
+      <p class="wnote">Project TA check-ins continue through Friday, November 13.</p>
       <div class="rows">
         <div class="row rowhead">
           <div class="cell">Date</div>
@@ -874,7 +903,7 @@
         </div>
         <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Recitation 9: Depth-first search and hard problems</div><div class="detail">Backtracking for the knight&#x27;s tour, and why some graph questions may never be easy.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
-        <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
+        <div class="cell cell-due"><span class="colhead">Due</span><ul class="duelist"><li class="due"><a href="project/Project_Description_F26.pdf" target="_blank" rel="noopener">First version of your project app live on the web</a></li></ul></div>
       </div></div>
     </section>
     <section class="week" data-start="2026-11-23" data-end="2026-11-27">
@@ -940,16 +969,16 @@
           <span class="date">Tue 12/1</span>
           <span class="kind">Lecture</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Project presentations</div></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Project demo day</div><div class="detail">A science fair: half the class demos at tables while the other half walks around, then we swap. Practice for Thursday.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
-        <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
+        <div class="cell cell-due"><span class="colhead">Due</span><ul class="duelist"><li class="due"><a href="project/Project_Description_F26.pdf" target="_blank" rel="noopener">Final project app, code, and video due</a></li></ul></div>
       </div>
-      <div class="row row-lecture" data-date="2026-12-03">
+      <div class="row row-exam" data-date="2026-12-03">
         <div class="cell cell-date">
           <span class="date">Thu 12/3</span>
-          <span class="kind">Lecture</span>
+          <span class="kind">Exam</span>
         </div>
-        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Project presentations</div></div>
+        <div class="cell cell-class"><span class="colhead">In class</span><div class="ctitle">Project assessment, in class</div><div class="detail">Closed and on paper, about your own project.</div></div>
         <div class="cell cell-prep"><span class="colhead">Before class</span><span class="none">&middot;</span></div>
         <div class="cell cell-due"><span class="colhead">Due</span><span class="none">&middot;</span></div>
       </div>
@@ -991,7 +1020,7 @@
 
   <footer>
     <span>Recitation topics beyond Sorting II are announced closer to the date. Items marked <em>to be confirmed</em> are not yet final.</span>
-    <span class="stamp">Updated September 27, 2026</span>
+    <span class="stamp">Updated September 30, 2026</span>
   </footer>
 </div>
 
