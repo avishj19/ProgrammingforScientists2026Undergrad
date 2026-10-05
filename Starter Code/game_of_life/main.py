@@ -26,13 +26,22 @@ def main():
     #first, read the board from file
     inital_board = read_board_from_file(input_csv)
     # next simulate 
-    all_boards = play_game_of_life(initial_board, num_gens)
+    all_boards = play_game_of_life(inital_board, num_gens)
+    
     # next, animate and write to file 
     print("Animating board")
+    live_color = (255,255,255)
+    dead_color = (40,40,40)
+    scaling_factor = 0.8
+
+    frames = draw_game_boards(all_boards, live_color, dead_color, cell_width, scaling_factor)
+   
+   
+   
     # to fill in
     print("Animation drawn ")
+    animate_surfaces(frames,output_prefix)
 
-
-
+   
 if __name__ == "__main__":
     main()

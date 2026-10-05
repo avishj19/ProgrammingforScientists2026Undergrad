@@ -28,7 +28,15 @@ def play_automaton(initial_board: GameBoard, num_gens: int,
         raise ValueError("rules must be a dict[str, int].")
 
     # TODO: Implement function
-    pass
+    boards = []
+    boards.append(initial_board)
+    for i in range(num_gens):
+        curr_board = boards[i]
+        new_board = update_board(curr_board, neighborhood_type, rules)
+        boards.append(new_board)
+
+
+    return boards
 
 
 def update_board(current_board: GameBoard,
@@ -55,7 +63,18 @@ def update_board(current_board: GameBoard,
         raise ValueError("rules must be a dictionary.")
 
     # TODO: Implement function
-    pass
+    
+    num_rows = count_rows(current_board)
+    num_cols = count_columns(current_board[0])
+
+    newboard = initialize_board(num_rows, num_cols)
+    
+    #range over all the cells of the current board and
+    #update each cell acoording to the rules of gol
+    for i in range(num_rows):
+        for j in range(num_cols):
+            newboard[i][j] = update_cell(current_board,i,j)
+
 
 def update_cell(board: GameBoard, r: int, c: int,
                 neighborhood_type: str,
@@ -86,7 +105,14 @@ def update_cell(board: GameBoard, r: int, c: int,
         raise ValueError("rules must be a dict[str, int].")
 
     # TODO: Implement function
-    pass
+    
+    #convert cell and its neighborhood to a string
+    nbrhood = neighborhood_to_string(board,r,c,neighborhood_type)
+
+
+    return rules[nbrhood]
+
+
 
 def neighborhood_to_string(current_board: GameBoard, r: int, c: int,
                            neighborhood_type: str) -> str:
@@ -115,7 +141,32 @@ def neighborhood_to_string(current_board: GameBoard, r: int, c: int,
         raise ValueError('neighborhood_type must be "Moore" or "vonNeumann".')
 
     # TODO: implement neighborhood string construction
-    pass
+    
+    #First element in the string is the current cell
+    neghiorhood = current_board[r][c]
+
+    #then based on off the other negihborood type, 
+    # we are going to add the other neighbors to this string
+
+
+    if neighborhood_type == "Moore":
+        neighborhood_cells = [(r-1,c-1), (r-1,c), (r-1,c+1),(r,c+1),(r+1,c+1), (r+1,c), (r+1,c-1), (r,c-1)]
+    elif neighborhood_type == "vonNeumann":
+        neighborhood_cells = [(r-1, c), (r, c+1), (r+1,c), (r,c-1)]
+    else:
+        raise ValueError("Error")
+
+    for (x,y) in neighborhood_cells:
+        # make sure x and y in board
+        if in_field(current_board,x,y):
+            current_nbr += str(current_board[x][y])
+        else:
+            #figure it out
+            
+    
+
+    return neghiorhood
+
 
 # Helper functions are below
 
