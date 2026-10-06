@@ -36,7 +36,10 @@ def update_universe(current_universe: Universe, time: float) -> Universe:
     """
     Advance the universe by a single time step.
 
-    Computes new accelerations from the current state, then advances velocity and position accordingly.
+    Uses the velocity Verlet method: first move every body using its current
+    velocity and acceleration, then compute each body's new acceleration from
+    the new positions, and finally update its velocity using the average of
+    its old and new accelerations.
 
     Args:
         current_universe: Universe state at the current time.
@@ -47,12 +50,15 @@ def update_universe(current_universe: Universe, time: float) -> Universe:
     """
     new_universe = copy_universe(current_universe)
 
-    # Update every body in the cloned universe based on forces from current_universe
+    # first, move every body using its current velocity and acceleration
     for b in new_universe.bodies:
-        old_acc, old_vel = b.acceleration, b.velocity
-        b.acceleration = update_acceleration(current_universe, b)
+        b.position = update_position(b, b.acceleration, b.velocity, time)
+
+    # then, compute new accelerations from the new positions, and update velocities
+    for b in new_universe.bodies:
+        old_acc = b.acceleration
+        b.acceleration = update_acceleration(new_universe, b)
         b.velocity = update_velocity(b, old_acc, time)
-        b.position = update_position(b, old_acc, old_vel, time)
 
     return new_universe
 
