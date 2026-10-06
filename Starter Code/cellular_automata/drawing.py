@@ -1,35 +1,81 @@
-from datatypes import GameBoard
-from functions import assert_rectangular, count_rows, count_columns
 import pygame
+from datatypes import GameBoard
+from functions import count_rows, count_columns
 
-
-def draw_game_board(current_board: GameBoard, cell_width: int) -> pygame.Surface:
+def draw_game_boards(boards: list[GameBoard], cell_width: int, color_map: dict[str, str], scaling_factor: float=0.8) -> list[pygame.Surface]:
     """
-    Draw a single GameBoard to an image/surface (implementation up to you).
-    
-    Returns a pygame.Surface object representing the visualization of the board).
+    Draw game boards to Pygame surfaces.
+
+    Args:
+        boards (list[GameBoard]): A list of rectangular GameBoard objects.
+        cell_width (int): The width (in pixels) of each cell in the image.
+        color_map (dict): the state values mapped to their corresponding colors
+        scaling_factor (float): default = 0.8, amount to scale each radius by
+
+    Returns:
+        list[pygame.Surface]: A list of Pygame Surface objects corresponding to each GameBoard,
+        where each cell is drawn with the specified width and height.
     """
-    if not isinstance(current_board, list) or len(current_board) == 0:
-        raise ValueError("board must be a non-empty 2D list.")
-    assert_rectangular(current_board)
-    if not isinstance(cell_width, int) or cell_width <= 0:
-        raise ValueError("cell_width must be a positive integer.")
+    surfaces: list[pygame.Surface] = []
 
-    # TODO: implement drawing logic
-    return None
-
-def draw_game_boards(boards: list[GameBoard], cell_width: int) -> list[pygame.Surface]:
-    """
-    Draw multiple GameBoards and return a list of images/surfaces.
-    """
-    if not isinstance(boards, list) or len(boards) == 0:
-        raise ValueError("boards must be a non-empty list of GameBoard objects.")
-    if not isinstance(cell_width, int) or cell_width <= 0:
-        raise ValueError("cell_width must be a positive integer.")
-
-    surfaces = []
-
-    for board in boards: 
-        surfaces.append(draw_game_board(board, cell_width))
+    for board in boards:
+        current_surface = draw_game_board(board, cell_width, color_map, scaling_factor)
+        surfaces.append(current_surface)
 
     return surfaces
+
+
+def draw_game_board(current_board: GameBoard, cell_width: int, color_map: dict[str, str], scaling_factor: float=0.8) -> pygame.Surface:
+    """
+    draw_game_board takes as input a (rectangular) GameBoard, an integer cell_width
+    and a color_map 
+    It returns a Pygame Surface object corresponding to the GameBoard,
+    where each cell in the image has width and height equal to cell_width.
+
+    Args:
+        current_board (GameBoard): The game board to be drawn.
+        cell_width (int): The width (and height) in pixels of each cell in the board.
+        color_map (dict): the state values and their corresponding colors
+        scaling_factor (float): default = 0.8, amount to scale each radius by
+
+    Returns:
+        pygame.Surface: A Pygame Surface object representing the visual rendering 
+        of the given GameBoard.
+    """
+    # declare surface
+    width = count_columns(current_board) * cell_width
+    height = count_rows(current_board) * cell_width
+
+    surface = pygame.Surface((width, height))
+
+    colors = {"dark_gray": (60, 60, 60),
+    "white": (255, 255, 255),
+    "red": (239, 71, 111),
+    "green": (6, 214, 160),
+    "yellow": (255, 255, 0),
+    "orange": (255, 165, 0),
+    "purple": (160, 32, 240),
+    "blue": (17, 138, 178),
+    "black": (0, 0, 0)}
+
+    # set the fill color to dark gray
+    surface.fill(colors[color_map["0"]])
+
+    radius = scaling_factor * cell_width / 2
+
+    for i in range(len(current_board)):
+        for j in range(len(current_board[i])):
+            val = current_board[i][j]
+            if val not in color_map:
+                raise ValueError(f"Error: Out of range value {val} in board when drawing board.")
+            
+            if val != "0": 
+                # we know the fill color, so let's draw the cell as a circle
+                # set the circle's center
+                x = j * cell_width + cell_width // 2
+                y = i * cell_width + cell_width // 2
+                
+                # draw circle and fill it in
+                pygame.draw.circle(surface, colors[color_map[val]], (x, y), int(radius))
+
+    return surface
