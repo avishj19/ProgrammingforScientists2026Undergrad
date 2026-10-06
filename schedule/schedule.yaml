@@ -358,8 +358,8 @@ weeks:
             url: ca_gravity
       - date: 2026-10-09
         kind: recitation
-        title: "Recitation 5: Hashing"
-        detail: "Neighbor search for boids with a spatial grid, which is a hash table."
+        title: "Recitation 5: Project kickoff"
+        detail: "Hand Claude your proposal and get a first draft in minutes, then work out in small groups what questions to ask of it. Bring your laptop with Claude Code installed."
         due:
           - text: "HW3 due (automata and Gray-Scott)"
 
@@ -488,9 +488,8 @@ weeks:
             text: "The reaction-diffusion build is on YouTube as a companion"
             minutes: 188
       - date: 2026-11-13
-        kind: recitation
-        title: "Recitation 8: Graphs and breadth-first search"
-        detail: "Contact tracing on a real contact network."
+        kind: no-class
+        title: "No recitation: AI4Bio symposium"
 
   - title: "Assembly 2 and theory 1"
     label: "Week 11"
@@ -520,7 +519,7 @@ weeks:
             minutes: 120
       - date: 2026-11-20
         kind: recitation
-        title: "Recitation 9: Depth-first search and hard problems"
+        title: "Recitation 8: Depth-first search and hard problems"
         detail: "Backtracking for the knight's tour, and why some graph questions may never be easy."
         due:
           - text: "First version of your project app live on the web"
