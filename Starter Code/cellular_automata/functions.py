@@ -20,7 +20,6 @@ def play_automaton(
         representing the automaton's progression from the initial board
         through each generation.
     """
-<<<<<<< HEAD
     if not isinstance(initial_board, list) or len(initial_board) == 0:
         raise ValueError("initial_board must be a non-empty GameBoard.")
     assert_rectangular(initial_board)
@@ -41,10 +40,8 @@ def play_automaton(
 
 
     return boards
-=======
     # TODO: implement
     pass
->>>>>>> e0d2160eccf189abe162d75df660224a5ec7ecef
 
 
 def update_board(current_board: GameBoard, neighborhood_type: str, rules: dict[str, str]) -> GameBoard:
@@ -59,33 +56,8 @@ def update_board(current_board: GameBoard, neighborhood_type: str, rules: dict[s
     Returns:
         GameBoard: The new board after applying the automaton rules for one generation.
     """
-<<<<<<< HEAD
-
-    # parameter checks
-    if not isinstance(current_board, list) or len(current_board) == 0:
-        raise ValueError("current_board must be a non-empty GameBoard.")
-    if neighborhood_type not in ["Moore", "vonNeumann"]:
-        raise ValueError("neighborhood_type must be 'Moore' or 'vonNeumann'.")
-    if not isinstance(rules, dict):
-        raise ValueError("rules must be a dictionary.")
-
-    # TODO: Implement function
-    
-    num_rows = count_rows(current_board)
-    num_cols = count_columns(current_board[0])
-
-    newboard = initialize_board(num_rows, num_cols)
-    
-    #range over all the cells of the current board and
-    #update each cell acoording to the rules of gol
-    for i in range(num_rows):
-        for j in range(num_cols):
-            newboard[i][j] = update_cell(current_board,i,j)
-
-=======
     # TODO: implement
     pass
->>>>>>> e0d2160eccf189abe162d75df660224a5ec7ecef
 
 
 def update_cell(board: GameBoard, r: int, c: int,
@@ -117,89 +89,9 @@ def neighborhood_to_string(current_board: GameBoard, r: int, c: int, neighborhoo
     Returns:
         str: A string encoding the central cell and its neighbors' states.
     """
-<<<<<<< HEAD
-    if not isinstance(board, list) or len(board) == 0:
-        raise ValueError("board must be a non-empty GameBoard.")
-    assert_rectangular(board)
-    if not isinstance(r, int) or not isinstance(c, int):
-        raise ValueError("r and c must be integers.")
-    if not in_field(board, r, c):
-        raise ValueError("(r, c) must be inside the board.")
-    if neighborhood_type not in ("Moore", "vonNeumann"):
-        raise ValueError('neighborhood_type must be "Moore" or "vonNeumann".')
-    if not isinstance(rules, dict):
-        raise ValueError("rules must be a dict[str, int].")
-
-    # TODO: Implement function
-    
-    #convert cell and its neighborhood to a string
-    nbrhood = neighborhood_to_string(board,r,c,neighborhood_type)
-
-
-    return rules[nbrhood]
-
-
-
-def neighborhood_to_string(current_board: GameBoard, r: int, c: int,
-                           neighborhood_type: str) -> str:
-    """
-    Construct the neighborhood string for a given cell in a GameBoard.
-
-    Args:
-        current_board (GameBoard): The current game board.
-        r (int): The row index of the cell.
-        c (int): The column index of the cell.
-        neighborhood_type (str): The type of neighborhood ("Moore" or "vonNeumann").
-
-    Returns:
-        str: A string formed of the central square followed by its neighbors
-        according to the neighborhood type indicated.
-    """
-    # parameter checks
-    if not isinstance(current_board, list) or len(current_board) == 0:
-        raise ValueError("current_board must be a non-empty GameBoard.")
-    assert_rectangular(current_board)
-    if not isinstance(r, int) or not isinstance(c, int):
-        raise ValueError("r and c must be integers.")
-    if not in_field(current_board, r, c):
-        raise ValueError("(r, c) must be inside the board.")
-    if neighborhood_type not in ("Moore", "vonNeumann"):
-        raise ValueError('neighborhood_type must be "Moore" or "vonNeumann".')
-
-    # TODO: implement neighborhood string construction
-    
-    #First element in the string is the current cell
-    neghiorhood = current_board[r][c]
-
-    #then based on off the other negihborood type, 
-    # we are going to add the other neighbors to this string
-
-
-    if neighborhood_type == "Moore":
-        neighborhood_cells = [(r-1,c-1), (r-1,c), (r-1,c+1),(r,c+1),(r+1,c+1), (r+1,c), (r+1,c-1), (r,c-1)]
-    elif neighborhood_type == "vonNeumann":
-        neighborhood_cells = [(r-1, c), (r, c+1), (r+1,c), (r,c-1)]
-    else:
-        raise ValueError("Error")
-
-    for (x,y) in neighborhood_cells:
-        # make sure x and y in board
-        if in_field(current_board,x,y):
-            current_nbr += str(current_board[x][y])
-        else:
-            #figure it out
-            
-    
-
-    return neghiorhood
-
-
-# Helper functions are below
-=======
     # TODO: implement
     pass
 
->>>>>>> e0d2160eccf189abe162d75df660224a5ec7ecef
 
 def initialize_board(num_rows: int, num_cols: int) -> GameBoard:
     """
