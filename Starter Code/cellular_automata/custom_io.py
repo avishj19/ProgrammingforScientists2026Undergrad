@@ -3,16 +3,46 @@ from datatypes import GameBoard
 def read_rules_from_file(filename: str) -> dict[str, str]:
     """
     read_rules_from_file takes a filename as a string and reads the rule strings provided in this file.
-    It stores the result in a dictionary mapping neighborhood strings to next-state strings.
+    It stores the result in a dictionary mapping neighborhood strings to strings.
 
     Args:
         filename (str): The name of the file containing the rule strings.
 
     Returns:
-        dict[str, str]: A dictionary where keys are neighborhood strings and values are the resulting states.
+        dict[str, str]: A dictionary where keys are neighborhood strings and values are the resulting state strings.
     """
-    # TODO: implement
-    pass
+    if not isinstance(filename, str) or len(filename) == 0:
+        raise ValueError("filename must be a non-empty string.")
+
+    # create a new dictionary (aka map) to store the rules
+    rules: dict[str, str] = dict()
+
+    # open and read the file
+    with open(filename, "r") as file:
+        giant_string = file.read()
+
+    # parse out the file contents as a list of strings, one line at a time
+    trimmed_giant_string = giant_string.strip()
+    lines = trimmed_giant_string.splitlines()
+
+    for current_line in lines:
+        parts = current_line.split(":")
+
+        # parts should have exactly two strings in it
+        if len(parts) != 2:
+            raise ValueError("Too many colons or not enough in rule.")
+
+        # first part is the neighborhood string
+        neighborhood_string = parts[0]
+
+        # second part is the state of the cell in the next generation as a string
+        new_state = parts[1]
+
+        # add the current neighborhood and updated state to our rule dictionary (aka map)
+        rules[neighborhood_string] = new_state
+
+    return rules
+
 
 def read_color_map_from_file(filename: str) -> dict[str, str]:
     """
