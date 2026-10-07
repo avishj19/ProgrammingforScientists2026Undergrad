@@ -39,5 +39,49 @@ def draw_game_board(current_board: GameBoard, cell_width: int, color_map: dict[s
         pygame.Surface: A Pygame Surface object representing the visual rendering
         of the given GameBoard.
     """
-    # TODO: implement
-    pass
+    width = count_columns(current_board) * cell_width
+    height = count_rows(current_board) * cell_width
+    surface = pygame.Surface((width, height))
+
+    #fill this in: cinverts color name to rgb
+    colors: dict[str, tuple[int,int,int]] = {
+        "dark_gray": (60,60,60),
+        "white": (255,255,255),
+        "red": (239,71,111),
+        "green": (6,214,160),
+        "yellow": (255,255,0),
+        "orange": (255,165,0),
+        "purple": (160,32,240),
+        "blue" : (17,138,178),
+        "black": (0,0,0),
+    }
+    
+    #fill the backgorund first of default state
+    surface.fill(colors[color_map["0"]])
+
+    #range over cells and make some circles
+    radius = scaling_factor * cell_width/2
+
+    for i in range(count_rows(current_board)):
+        for j in range(count_columns(current_board)):
+            val = current_board[i][j] # get current value of board
+
+            if val not in color_map: # see if we have that color
+                raise ValueError("No good since there is no color attached to it")
+            
+            #want to draw a circle whose color is the one associated with val 
+            if val != "0":
+                #set circles center
+                x = j * cell_width + cell_width//2
+                y = i * cell_width + cell_width//2
+                pygame.draw.circle(
+                    surface,
+                    colors[color_map[val]],
+                    (x, y),
+                    radius,
+                )
+
+            
+
+
+    return surface

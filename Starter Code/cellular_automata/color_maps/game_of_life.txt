@@ -1,2 +1,2 @@
 0:dark_gray
-1:white
+1:green

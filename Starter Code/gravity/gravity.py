@@ -16,9 +16,14 @@ def simulate_gravity(initial_universe: Universe, num_gens: int, time: float) -> 
     Returns:
         A list of Universe snapshots of length num_gens + 1.
     """
-    # TODO: add code here
-    pass
+    timepoints = [initial_universe]
 
+    for i in range(1,num_gens+1):
+        prev_universe = timepoints[i-1]
+        next_univerise = update_universe(prev_universe,time)
+        timepoints.append(next_univerise)
+
+    return timepoints
 
 def update_universe(current_universe: Universe, time: float) -> Universe:
     """

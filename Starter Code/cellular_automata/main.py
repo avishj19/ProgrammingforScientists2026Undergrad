@@ -5,10 +5,11 @@ from functions import play_automaton
 from drawing import draw_game_boards
 from animate import animate_surfaces
 
+
 def main():
     print("Cellular automata!")
 
-    if len(sys.argv) < 7:
+    if len(sys.argv) not in (7, 8):
         raise ValueError(
             "Usage: python main.py neighborhood_type rule_file initial_board_file output_file cell_width num_gens [color_map_file]"
         )
@@ -26,10 +27,10 @@ def main():
 
         print("Color map in successfully!")
 
-    else: 
+    else:
         color_map: dict[str, str] = {
             "0": "dark_gray",
-            "1": "white",
+            "1": "green",
             "2": "red",
             "3": "green",
             "4": "yellow",
@@ -42,6 +43,30 @@ def main():
     print("Parameters read in successfully!")
 
     # fill in code to run cellular automata
+
+    #first read in the board and rules
+    rules = read_rules_from_file(rule_file)
+    initial_board = read_board_from_file(initial_board_file)
+
+    print("Rules and boards read in")
+    print("Playing the game")
+
+    #now play the game
+    boards = play_automaton(initial_board, num_gens, neighborhood_type, rules)
+    print("Game played")
+
+    print("drawing images for board")
+    surfaces = draw_game_boards(boards, cell_width, color_map)
+
+    print("Images drawn")
+
+    print("anianimating the automation")
+
+    video_path = output_file if output_file.lower().endswith(".mp4") else f"{output_file}.mp4"
+    animate_surfaces(surfaces, video_path)
+
+    print("Simulation finished")
+
 
 if __name__ == "__main__":
     main()
